@@ -1,0 +1,8 @@
+.mesto__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 75vh;
+  max-height: 75vh;
+  object-fit: contain;
+}

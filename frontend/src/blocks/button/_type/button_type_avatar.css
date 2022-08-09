@@ -1,0 +1,19 @@
+.button_type_avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 0;
+  background-image: url(../../../images/icon-edit.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 26px 26px;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.button_type_avatar:hover {
+  opacity: 1;
+}

@@ -1,0 +1,8 @@
+.popup__error {
+  visibility: hidden;
+  display: block;
+  min-height: 30px;
+  font-size: 12px;
+  color: #ff0000;
+  padding-top: 3px;
+}

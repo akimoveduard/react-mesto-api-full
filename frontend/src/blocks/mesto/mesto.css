@@ -1,0 +1,9 @@
+.mesto {
+  position: relative;
+}
+
+@media screen and (max-width: 425px) {
+  .mesto {
+    margin: 0 21px;
+  }
+}

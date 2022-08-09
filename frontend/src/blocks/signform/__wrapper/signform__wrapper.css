@@ -1,0 +1,17 @@
+.signform__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 358px;
+}
+
+.signform__wrapper > * {
+  border: 0px solid #ccc;
+}
+
+@media screen and (max-width: 425px) {
+  .signform__wrapper {
+    padding: 0 22px;
+  }
+}

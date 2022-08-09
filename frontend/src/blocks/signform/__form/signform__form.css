@@ -1,0 +1,9 @@
+.signform__form {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

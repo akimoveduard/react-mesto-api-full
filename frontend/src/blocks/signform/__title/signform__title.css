@@ -1,0 +1,17 @@
+.signform__title {
+  color: #ffffff;
+  padding: 0;
+  margin: 60px 0 50px 0;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 900;
+  text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+  .signform__title {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 25px 0 75px 0;
+  }
+}

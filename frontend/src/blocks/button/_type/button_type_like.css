@@ -1,0 +1,16 @@
+.button_type_like {
+  border: 0;
+  display: block;
+  background-image: url(../../../images/icon-like.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 22px 19px;
+  min-width: 22px;
+  min-height: 19px;
+  background-color: transparent;
+  transition: .3 ease;
+}
+
+.button_type_like:hover {
+  opacity: .5;
+}

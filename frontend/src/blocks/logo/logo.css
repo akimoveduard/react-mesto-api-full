@@ -1,0 +1,11 @@
+.logo {
+  width: 142px;
+  transition: .5s ease;
+}
+
+@media screen and (max-width: 425px) {
+  .logo {
+    width: 104px;
+    transition: .5s ease;
+  }
+}

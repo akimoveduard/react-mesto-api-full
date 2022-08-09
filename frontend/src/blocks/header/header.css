@@ -1,0 +1,33 @@
+.header {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 45px 10% 6px 10%;
+  transition: .5s ease;
+}
+
+.header > * {
+  border: 1px solid;
+}
+
+.header::after {
+  content: "";
+  height: 1px;
+  display: block;
+  margin-top: 36px;
+  border-bottom: 1px solid #545454;
+  transition: .5s ease;
+  opacity: .7;
+}
+
+@media screen and (max-width: 425px) {
+  .header {
+    margin: 0 auto;
+    padding: 28px 27px 31px 27px;
+    border-bottom: 1px solid rgba(84, 84, 84, 70%);
+    transition: .5s ease;
+  }
+
+  .header::after {
+    display: none;
+  }
+}
