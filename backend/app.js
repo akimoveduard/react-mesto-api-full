@@ -4,8 +4,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
+const cors = require('cors');
+
 const { errors } = require('celebrate');
 const { validateUserCreate, validateUserLogin } = require('./middlewares/celebrate');
+
+const corsOrigins = require('./utils/cors-origins');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -24,6 +28,8 @@ app.use(cookieParser());
 const { PORT = 3000 } = process.env;
 
 mongoose.connect('mongodb://localhost:27017/mestodb');
+
+app.use(cors(corsOrigins));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
