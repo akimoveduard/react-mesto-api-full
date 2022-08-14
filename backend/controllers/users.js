@@ -7,7 +7,9 @@ const ErrorUnauthorized = require('../utils/errors/unauthorized'); // 401
 const ErrorNotFound = require('../utils/errors/not-found'); // 404
 const ErrorConflict = require('../utils/errors/conflict'); // 409
 
-const SALT_ROUNDS = 10;
+const { SALT_ROUNDS } = process.env;
+
+console.log(typeof SALT_ROUNDS)
 
 const createUser = (req, res, next) => {
   const {
@@ -18,7 +20,7 @@ const createUser = (req, res, next) => {
     avatar,
   } = req.body;
 
-  bcrypt.hash(password, SALT_ROUNDS)
+  bcrypt.hash(password, Number(SALT_ROUNDS))
     .then((hash) => {
       User.create({
         email,

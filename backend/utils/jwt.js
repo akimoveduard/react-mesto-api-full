@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = 'most_secret_word_ever';
+const { JWT_SECRET } = process.env;
 
 const getJwtToken = (id) => {
   const token = jwt.sign({ payload: id }, JWT_SECRET, { expiresIn: '7d' });
