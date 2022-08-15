@@ -39,6 +39,12 @@ const { createUser, login } = require('./controllers/users');
 
 app.use(requestLogger);
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 app.post('/signup', validateUserCreate, createUser);
 app.post('/signin', validateUserLogin, login);
 app.get('/signout', (req, res) => {

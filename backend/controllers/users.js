@@ -9,8 +9,6 @@ const ErrorConflict = require('../utils/errors/conflict'); // 409
 
 const { SALT_ROUNDS } = process.env;
 
-console.log(typeof SALT_ROUNDS)
-
 const createUser = (req, res, next) => {
   const {
     email,

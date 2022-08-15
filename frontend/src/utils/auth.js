@@ -29,8 +29,6 @@ export const register = (email, password) => {
 
 export const login = (email, password) => {
 
-  console.log(email, password)
-
   return fetch(`${BASE_URL}/signin`, {
     method: 'POST',
     credentials: 'include',
@@ -53,7 +51,6 @@ export const checkToken = (token) => {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization' : `Bearer ${token}`
     }
   })
   .then(response => handleResponse(response));
