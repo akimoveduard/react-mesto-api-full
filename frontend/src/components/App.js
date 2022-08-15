@@ -21,6 +21,7 @@ import InfoTooltip from './InfoTooltip';
 
 function App() {
 
+
   const history = useHistory();
 
   const [isLoggedIn, setLoggedIn] = React.useState(false);
@@ -109,7 +110,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(user => user._id === currentUser._id);
+    const isLiked = card.likes.some(user => user === currentUser._id);
     api.changeLikeCardStatus(card, !isLiked)
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
@@ -141,6 +142,7 @@ function App() {
   }
 
   function handleLogin(data) {
+    console.log(document.cookie)
     auth.login(data.email, data.password)
       .then((data) => {
         localStorage.setItem('jwt', data.token);
@@ -169,12 +171,11 @@ function App() {
   };
 
   function checkToken() {
-    console.log(localStorage);
     if (localStorage.getItem('jwt')){
       const jwt = localStorage.getItem('jwt');
       auth.checkToken(jwt)
       .then((res)=> {
-        setUserEmail(res.data.email)
+        setUserEmail(res.email)
         setLoggedIn(true);
         getInitialData();
         history.push('/');        

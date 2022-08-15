@@ -10,9 +10,9 @@ function Card({
 
   const currentUser = React.useContext(CurrentUserContext);
 
-  const isOwner = card.owner._id === currentUser._id;
+  const isOwner = card.owner === currentUser._id;
 
-  const isLiked = card.likes.some(user => user._id === currentUser._id);
+  const isLiked = card.likes.some(user => user === currentUser._id);
   const cardLikeButtonClassName = (
     `${isLiked ? 'button_type_like button_type_liked' : 'button_type_like'}`
   );

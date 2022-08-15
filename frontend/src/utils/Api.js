@@ -18,6 +18,7 @@ class Api {
     return fetch(`${this._url}/cards`,
       {
         method: 'GET',
+        credentials: 'include',
         headers: this._headers
       })
         .then(this._handleResponse);
@@ -27,6 +28,7 @@ class Api {
     return fetch(`${this._url}/cards`,
     {
       method: 'POST',
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: name,
@@ -40,6 +42,7 @@ class Api {
     return fetch(`${this._url}/cards/${cardId}`,
     {
       method: 'DELETE',
+      credentials: 'include',
       headers: this._headers
     })
       .then(this._handleResponse);
@@ -50,6 +53,7 @@ class Api {
     return fetch(`${this._url}/cards/${data._id}/likes`,
     {
       method: method,
+      credentials: 'include',
       headers: this._headers
     })
       .then(this._handleResponse);
@@ -59,6 +63,7 @@ class Api {
     return fetch(`${this._url}/users/me`,
     {
       method: 'GET',
+      credentials: 'include',
       headers: this._headers
     })
       .then(this._handleResponse);
@@ -67,6 +72,7 @@ class Api {
   updateProfile(name, about) {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: name,
@@ -80,6 +86,7 @@ class Api {
     return fetch(`${this._url}/users/me/avatar`,
     {
       method: 'PATCH',
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify ({
         avatar: url
