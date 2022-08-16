@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
+
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
@@ -22,13 +25,23 @@ const handleErrors = require('./middlewares/handle-errors');
 const usersRoutes = require('./routes/users');
 const cardsRoutes = require('./routes/cards');
 
+const { PORT = 3000, MONGODB_CONNECT = 'mongodb://localhost:27017/mestodb' } = process.env;
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
 const app = express();
+
+app.use(helmet());
+app.use(limiter);
 
 app.use(cookieParser());
 
-const { PORT = 3000 } = process.env;
-
-mongoose.connect('mongodb://localhost:27017/mestodb');
+mongoose.connect(MONGODB_CONNECT);
 
 app.use(cors(corsOrigins));
 
@@ -55,6 +68,8 @@ app.use(auth);
 
 app.use('/users', usersRoutes);
 app.use('/cards', cardsRoutes);
+
+app.use(errorLogger);
 
 app.use(errors());
 

@@ -20,7 +20,7 @@ const validateUserLogin = celebrate({
 
 const validateUserId = celebrate({
   params: Joi.object().keys({
-    id: Joi.string().alphanum().length(24),
+    id: Joi.string().hex().length(24),
   }),
 });
 
@@ -46,7 +46,7 @@ const validateCardPost = celebrate({
 
 const validateCardId = celebrate({
   params: Joi.object().keys({
-    cardId: Joi.string().alphanum().length(24),
+    cardId: Joi.string().hex().length(24),
   })
     .messages({
       'string.length': 'Длина id карточки должна быть 24 символа.',
